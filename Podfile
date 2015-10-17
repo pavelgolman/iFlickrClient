@@ -3,5 +3,6 @@ platform :ios, '8.0'
 
 target 'iFlickrClient' do
 	pod 'FlickrKit'
+	pod "AFNetworking"
 end
 

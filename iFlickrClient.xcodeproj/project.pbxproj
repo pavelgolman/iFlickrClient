@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		D92E4B762AA0E1773404721F /* libPods-iFlickrClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC89F9151ABBF3118792FB4 /* libPods-iFlickrClient.a */; };
 		E949C76F1BC2F8EC00E9ED3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */; };
-		E949C7711BC2F8EC00E9ED3F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7701BC2F8EC00E9ED3F /* FirstViewController.swift */; };
-		E949C7731BC2F8EC00E9ED3F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7721BC2F8EC00E9ED3F /* SecondViewController.swift */; };
+		E949C7711BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */; };
+		E949C7731BC2F8EC00E9ED3F /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */; };
 		E949C7761BC2F8EC00E9ED3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E949C7741BC2F8EC00E9ED3F /* Main.storyboard */; };
 		E949C7781BC2F8EC00E9ED3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E949C7771BC2F8EC00E9ED3F /* Assets.xcassets */; };
 		E949C77B1BC2F8EC00E9ED3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E949C7791BC2F8EC00E9ED3F /* LaunchScreen.storyboard */; };
+		E9D3900E1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3900D1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +23,14 @@
 		9DC73C6A1F75979A10BB3DC7 /* Pods-iFlickrClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFlickrClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-iFlickrClient/Pods-iFlickrClient.release.xcconfig"; sourceTree = "<group>"; };
 		E949C76B1BC2F8EC00E9ED3F /* iFlickrClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFlickrClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E949C7701BC2F8EC00E9ED3F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E949C7721BC2F8EC00E9ED3F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPhotosViewController.swift; sourceTree = "<group>"; };
+		E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
 		E949C7751BC2F8EC00E9ED3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E949C7771BC2F8EC00E9ED3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E949C77A1BC2F8EC00E9ED3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E949C77C1BC2F8EC00E9ED3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9AFA6471BC302DA00D13DEA /* iFlickrClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iFlickrClient-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9D3900D1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iFlickrClientCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +84,14 @@
 			isa = PBXGroup;
 			children = (
 				E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */,
-				E949C7701BC2F8EC00E9ED3F /* FirstViewController.swift */,
-				E949C7721BC2F8EC00E9ED3F /* SecondViewController.swift */,
+				E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */,
+				E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */,
 				E949C7741BC2F8EC00E9ED3F /* Main.storyboard */,
 				E949C7771BC2F8EC00E9ED3F /* Assets.xcassets */,
 				E949C7791BC2F8EC00E9ED3F /* LaunchScreen.storyboard */,
 				E949C77C1BC2F8EC00E9ED3F /* Info.plist */,
 				E9AFA6471BC302DA00D13DEA /* iFlickrClient-Bridging-Header.h */,
+				E9D3900D1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift */,
 			);
 			path = iFlickrClient;
 			sourceTree = "<group>";
@@ -199,9 +202,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E949C7731BC2F8EC00E9ED3F /* SecondViewController.swift in Sources */,
+				E949C7731BC2F8EC00E9ED3F /* PhotoSearchViewController.swift in Sources */,
 				E949C76F1BC2F8EC00E9ED3F /* AppDelegate.swift in Sources */,
-				E949C7711BC2F8EC00E9ED3F /* FirstViewController.swift in Sources */,
+				E9D3900E1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift in Sources */,
+				E949C7711BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
