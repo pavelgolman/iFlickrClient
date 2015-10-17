@@ -4,30 +4,19 @@ import UIKit
 class NearbyPhotosViewController: UICollectionViewController {
 
     @IBOutlet var imagesView: UICollectionView!
-    var images = [UIImageView]()
-    var fk = FlickrKit.sharedFlickrKit()
+    var images = [FlickrPhoto]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fk.initializeWithAPIKey("93ce146f5889c40595052957db235a76", sharedSecret:"721d862aa6fecd8f");
+        let api = FlickAPI()
+        api.loadImages(didLoadImages)
         
-        self.fk.call("flickr.photos.search", args: ["tags": "cat"]) { (response, error) -> Void in
-            let photoPager = response["photos"] as! Dictionary<String, AnyObject>
-            let photos = photoPager["photo"] as! Array<AnyObject>
-            
-            for photo in photos{
-                var image = UIImageView()
-                let url = self.fk.photoURLForSize(FKPhotoSizeSmall240, fromPhotoDictionary:photo as! [NSObject : AnyObject])
-                image.setImageWithURL(url)
-                self.images.append(image)
-            }
-            self.imagesView.reloadData()
-        }
-        
-       // self.fk.call(apiMethod: String!, args: <#T##[NSObject : AnyObject]!#>) { (<#[NSObject : AnyObject]!#>, <#NSError!#>) -> Void in
-         //   code
-        //}
+    }
+    
+    func didLoadImages(images: [FlickrPhoto]){
+        self.images = images
+        self.imagesView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +40,9 @@ class NearbyPhotosViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("NearbyCell", forIndexPath: indexPath) as! iFlickrClientCollectionViewCell
         
         // Configure the cell
-        cell.imageView.image = self.images[indexPath.row].image
+        //cell.imageView.image = self.images[indexPath.row].image
+        cell.imageView.setImageWithURL(self.images[indexPath.row].url!)
+
         cell.setNeedsDisplay()
         return cell
     }
