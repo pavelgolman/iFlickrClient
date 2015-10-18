@@ -1,7 +1,6 @@
 
-class PhotoSearchViewController: CommonSearchViewController {
+class PhotoSearchViewController: CommonSearchViewController , UISearchBarDelegate {
     
-    @IBOutlet var searchBar: UISearchBar!;
 
     
     override func viewDidLoad() {
@@ -10,7 +9,10 @@ class PhotoSearchViewController: CommonSearchViewController {
         let api = FlickAPI()
         api.loadImages(didLoadImages)
         
-        
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
         
     }
     
@@ -18,6 +20,15 @@ class PhotoSearchViewController: CommonSearchViewController {
         return "SearchCell";
     }
 
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        print("cancel button called")
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        print("search button called")
+        
+    }
 
 }
 
