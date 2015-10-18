@@ -7,7 +7,8 @@ class NearbyPhotosViewController: CommonSearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        api.loadImages(didLoadImages)
+        api.curentTags = ["tags": "Ferrari"]
+        api.searchImages(didLoadImages)
         
     }
     

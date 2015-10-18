@@ -15,17 +15,19 @@ class FlickAPI{
     
     var fk = FlickrKit.sharedFlickrKit()
     
-    func loadImages(completion: (([FlickrPhoto]) -> Void)!){
-        return self.apiCall(["tags": "shoes"], completion: completion)
+    var currentPage = 1
+    var curentTags = [String: String]()
+    
+    func nextPage(){
+        self.currentPage++;
+        print("CURRENT PAGE IS: " + String(self.currentPage))
     }
     
-    func searchImages(tags: String, completion: (([FlickrPhoto]) -> Void)!){
-        return self.apiCall(["tags": tags], completion: completion)
-    }
-
-    
-    func apiCall(args: [String: String], completion: (([FlickrPhoto]) -> Void)!){
+    func searchImages(completion: (([FlickrPhoto]) -> Void)!){
         self.fk.initializeWithAPIKey("93ce146f5889c40595052957db235a76", sharedSecret:"721d862aa6fecd8f");
+        
+        var args = self.curentTags
+        args["page"] = String(self.currentPage)
         
         self.fk.call("flickr.photos.search", args: args) { (response, error) -> Void in
             let photoPager = response["photos"] as! Dictionary<String, AnyObject>

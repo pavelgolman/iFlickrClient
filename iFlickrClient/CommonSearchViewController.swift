@@ -10,14 +10,12 @@ class CommonSearchViewController : UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
 
     var images = [FlickrPhoto]()
     
     func didLoadImages(images: [FlickrPhoto]){
-        self.images = images
+        self.images += images
         self.imagesView.reloadData()
     }
     
@@ -44,15 +42,22 @@ class CommonSearchViewController : UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.collectionCellIdentifier(), forIndexPath: indexPath) as! iFlickrClientCollectionViewCell
         
-        // Configure the cell
-        //cell.imageView.image = self.images[indexPath.row].image
         cell.imageView.setImageWithURL(self.images[indexPath.row].url!)
         
         cell.setNeedsDisplay()
         return cell
     }
+    
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY - (contentHeight - scrollView.frame.size.height) > 10 {
+            self.api.nextPage()
+            self.api.searchImages(didLoadImages)
+        }
+    }
 }
-
+/*
 extension CommonSearchViewController: UICollectionViewDelegateFlowLayout {
     // MARK:- UICollectioViewDelegateFlowLayout methods
     
@@ -64,3 +69,4 @@ extension CommonSearchViewController: UICollectionViewDelegateFlowLayout {
         return CGSizeMake(length,length);
     }
 }
+*/
