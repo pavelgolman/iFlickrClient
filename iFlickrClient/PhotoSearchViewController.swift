@@ -6,8 +6,8 @@ class PhotoSearchViewController: CommonSearchViewController , UISearchBarDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let api = FlickAPI()
-        api.loadImages(didLoadImages)
+        
+        //api.loadImages(didLoadImages)
         
         let searchBar = UISearchBar()
         searchBar.delegate = self
@@ -27,6 +27,17 @@ class PhotoSearchViewController: CommonSearchViewController , UISearchBarDelegat
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         print("search button called")
+        
+    }
+    
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.characters.count >= 3{
+            print("search text is \(searchText)")
+            self.api.searchImages(searchText, completion: didLoadImages)
+        }else if self.images.count > 0{
+            self.didLoadImages([FlickrPhoto]())
+        }
         
     }
 

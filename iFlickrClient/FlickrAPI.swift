@@ -16,9 +16,18 @@ class FlickAPI{
     var fk = FlickrKit.sharedFlickrKit()
     
     func loadImages(completion: (([FlickrPhoto]) -> Void)!){
+        return self.apiCall(["tags": "shoes"], completion: completion)
+    }
+    
+    func searchImages(tags: String, completion: (([FlickrPhoto]) -> Void)!){
+        return self.apiCall(["tags": tags], completion: completion)
+    }
+
+    
+    func apiCall(args: [String: String], completion: (([FlickrPhoto]) -> Void)!){
         self.fk.initializeWithAPIKey("93ce146f5889c40595052957db235a76", sharedSecret:"721d862aa6fecd8f");
         
-        self.fk.call("flickr.photos.search", args: ["tags": "shoes"]) { (response, error) -> Void in
+        self.fk.call("flickr.photos.search", args: args) { (response, error) -> Void in
             let photoPager = response["photos"] as! Dictionary<String, AnyObject>
             let photos = photoPager["photo"] as! Array<AnyObject>
             

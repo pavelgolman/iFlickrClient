@@ -5,6 +5,8 @@ import UIKit
 class CommonSearchViewController : UICollectionViewController {
     
     @IBOutlet var imagesView: UICollectionView!
+    
+    let api = FlickAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
