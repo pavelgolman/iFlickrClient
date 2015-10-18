@@ -2,5 +2,7 @@
 
 class FlickrPhoto {
     
-    var url : NSURL?
+    var photo: AnyObject!
+    
+
 }

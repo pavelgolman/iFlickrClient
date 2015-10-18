@@ -37,9 +37,10 @@ class FlickAPI{
             
             for photo in photos{
                 let image = FlickrPhoto()
-                let url = self.fk.photoURLForSize(FKPhotoSizeLargeSquare150, fromPhotoDictionary:photo as! [NSObject : AnyObject])
+     //           let url = self.fk.photoURLForSize(FKPhotoSizeLargeSquare150, fromPhotoDictionary:photo as! [NSObject : AnyObject])
                 
-                image.url = url
+                image.photo = photo
+               
                 result.append(image)
             }
             

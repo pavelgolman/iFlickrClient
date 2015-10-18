@@ -41,8 +41,10 @@ class CommonSearchViewController : UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.collectionCellIdentifier(), forIndexPath: indexPath) as! iFlickrClientCollectionViewCell
+       
+            let url = self.api.fk.photoURLForSize(FKPhotoSizeLargeSquare150, fromPhotoDictionary:self.images[indexPath.row].photo as! [NSObject : AnyObject])
         
-        cell.imageView.setImageWithURL(self.images[indexPath.row].url!, placeholderImage: UIImage(named: "loading.gif"))
+        cell.imageView.setImageWithURL(url, placeholderImage: UIImage(named: "loading.gif"))
         
         cell.setNeedsDisplay()
         return cell
