@@ -5,6 +5,13 @@ import UIKit
 class CommonSearchViewController : UICollectionViewController {
     
     @IBOutlet var imagesView: UICollectionView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
+
     var images = [FlickrPhoto]()
     
     func didLoadImages(images: [FlickrPhoto]){
@@ -41,5 +48,17 @@ class CommonSearchViewController : UICollectionViewController {
         
         cell.setNeedsDisplay()
         return cell
+    }
+}
+
+extension CommonSearchViewController: UICollectionViewDelegateFlowLayout {
+    // MARK:- UICollectioViewDelegateFlowLayout methods
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        // http://stackoverflow.com/questions/28872001/uicollectionview-cell-spacing-based-on-device-sceen-size
+        
+        let length = (UIScreen.mainScreen().bounds.width-15)/4
+        return CGSizeMake(length,length);
     }
 }
