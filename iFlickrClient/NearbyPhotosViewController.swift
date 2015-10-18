@@ -1,10 +1,8 @@
 import UIKit
 
 
-class NearbyPhotosViewController: UICollectionViewController {
+class NearbyPhotosViewController: CommonSearchViewController {
 
-    @IBOutlet var imagesView: UICollectionView!
-    var images = [FlickrPhoto]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,37 +12,9 @@ class NearbyPhotosViewController: UICollectionViewController {
         
     }
     
-    func didLoadImages(images: [FlickrPhoto]){
-        self.images = images
-        self.imagesView.reloadData()
+    override func collectionCellIdentifier() -> String{
+        return "NearbyCell";
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 1
-    }
-    
-    
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
-        return self.images.count
-    }
-    
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("NearbyCell", forIndexPath: indexPath) as! iFlickrClientCollectionViewCell
-        
-        // Configure the cell
-        //cell.imageView.image = self.images[indexPath.row].image
-        cell.imageView.setImageWithURL(self.images[indexPath.row].url!)
-
-        cell.setNeedsDisplay()
-        return cell
-    }
 }
 

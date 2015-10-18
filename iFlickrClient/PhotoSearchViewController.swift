@@ -1,23 +1,17 @@
-//
-//  SecondViewController.swift
-//  iFlickrClient
-//
-//  Created by Pavel on 10/5/15.
-//  Copyright © 2015 Pavel. All rights reserved.
-//
 
-import UIKit
-
-class PhotoSearchViewController: UIViewController {
-
+class PhotoSearchViewController: CommonSearchViewController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let api = FlickAPI()
+        api.loadImages(didLoadImages)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func collectionCellIdentifier() -> String{
+        return "SearchCell";
     }
 
 

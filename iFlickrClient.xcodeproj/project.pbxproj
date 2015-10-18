@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D92E4B762AA0E1773404721F /* libPods-iFlickrClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC89F9151ABBF3118792FB4 /* libPods-iFlickrClient.a */; };
+		E9234E041BD34E2600CC89F9 /* CommonSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9234E031BD34E2600CC89F9 /* CommonSearchViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E949C76F1BC2F8EC00E9ED3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */; };
 		E949C7711BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */; };
 		E949C7731BC2F8EC00E9ED3F /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */; };
@@ -23,6 +24,7 @@
 		37835B52C3EC87C91521470D /* Pods-iFlickrClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFlickrClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iFlickrClient/Pods-iFlickrClient.debug.xcconfig"; sourceTree = "<group>"; };
 		8FC89F9151ABBF3118792FB4 /* libPods-iFlickrClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iFlickrClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC73C6A1F75979A10BB3DC7 /* Pods-iFlickrClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFlickrClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-iFlickrClient/Pods-iFlickrClient.release.xcconfig"; sourceTree = "<group>"; };
+		E9234E031BD34E2600CC89F9 /* CommonSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonSearchViewController.swift; sourceTree = "<group>"; };
 		E949C76B1BC2F8EC00E9ED3F /* iFlickrClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFlickrClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPhotosViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E9234E021BD34DFC00CC89F9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9234E031BD34E2600CC89F9 /* CommonSearchViewController.swift */,
+				E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */,
+				E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		E949C7621BC2F8EC00E9ED3F = {
 			isa = PBXGroup;
 			children = (
@@ -87,10 +99,9 @@
 		E949C76D1BC2F8EC00E9ED3F /* iFlickrClient */ = {
 			isa = PBXGroup;
 			children = (
+				E9234E021BD34DFC00CC89F9 /* Controllers */,
 				E9BBD3441BD1EE2D007CD4B9 /* FlickrAPI */,
 				E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */,
-				E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */,
-				E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */,
 				E949C7741BC2F8EC00E9ED3F /* Main.storyboard */,
 				E949C7771BC2F8EC00E9ED3F /* Assets.xcassets */,
 				E949C7791BC2F8EC00E9ED3F /* LaunchScreen.storyboard */,
@@ -218,6 +229,7 @@
 			files = (
 				E949C7731BC2F8EC00E9ED3F /* PhotoSearchViewController.swift in Sources */,
 				E9BBD3461BD1FDFF007CD4B9 /* FlickrPhoto.swift in Sources */,
+				E9234E041BD34E2600CC89F9 /* CommonSearchViewController.swift in Sources */,
 				E949C76F1BC2F8EC00E9ED3F /* AppDelegate.swift in Sources */,
 				E9D3900E1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift in Sources */,
 				E949C7711BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift in Sources */,
