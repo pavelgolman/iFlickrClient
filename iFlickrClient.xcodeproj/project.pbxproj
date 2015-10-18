@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D92E4B762AA0E1773404721F /* libPods-iFlickrClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC89F9151ABBF3118792FB4 /* libPods-iFlickrClient.a */; };
 		E9234E041BD34E2600CC89F9 /* CommonSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9234E031BD34E2600CC89F9 /* CommonSearchViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		E9234E071BD4120300CC89F9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = E9234E061BD4120300CC89F9 /* loading.gif */; settings = {ASSET_TAGS = (); }; };
 		E949C76F1BC2F8EC00E9ED3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */; };
 		E949C7711BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */; };
 		E949C7731BC2F8EC00E9ED3F /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */; };
@@ -25,6 +26,7 @@
 		8FC89F9151ABBF3118792FB4 /* libPods-iFlickrClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iFlickrClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC73C6A1F75979A10BB3DC7 /* Pods-iFlickrClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFlickrClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-iFlickrClient/Pods-iFlickrClient.release.xcconfig"; sourceTree = "<group>"; };
 		E9234E031BD34E2600CC89F9 /* CommonSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonSearchViewController.swift; sourceTree = "<group>"; };
+		E9234E061BD4120300CC89F9 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		E949C76B1BC2F8EC00E9ED3F /* iFlickrClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFlickrClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPhotosViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		E9234E051BD4109700CC89F9 /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				E9234E061BD4120300CC89F9 /* loading.gif */,
+			);
+			name = Static;
+			sourceTree = "<group>";
+		};
 		E949C7621BC2F8EC00E9ED3F = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		E949C76D1BC2F8EC00E9ED3F /* iFlickrClient */ = {
 			isa = PBXGroup;
 			children = (
+				E9234E051BD4109700CC89F9 /* Static */,
 				E9234E021BD34DFC00CC89F9 /* Controllers */,
 				E9BBD3441BD1EE2D007CD4B9 /* FlickrAPI */,
 				E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */,
@@ -182,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E949C77B1BC2F8EC00E9ED3F /* LaunchScreen.storyboard in Resources */,
+				E9234E071BD4120300CC89F9 /* loading.gif in Resources */,
 				E949C7781BC2F8EC00E9ED3F /* Assets.xcassets in Resources */,
 				E949C7761BC2F8EC00E9ED3F /* Main.storyboard in Resources */,
 			);
