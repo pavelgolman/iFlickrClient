@@ -89,7 +89,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="imageView" destination="huc-vY-5Om" id="Ebu-4q-786"/>
-                                    <segue destination="iDa-Xd-FlV" kind="show" identifier="ShowDetail" id="Fqs-xL-FYB"/>
+                                    <segue destination="MXN-CY-kMh" kind="show" id="Rhz-Qi-30o"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -158,7 +158,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="imageView" destination="u9d-Un-hvZ" id="b4j-bE-ITO"/>
-                                    <segue destination="iDa-Xd-FlV" kind="show" identifier="" id="TfO-LP-KTJ"/>
+                                    <segue destination="MXN-CY-kMh" kind="show" id="01x-aW-o1U"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -177,36 +177,58 @@
             <point key="canvasLocation" x="1670" y="420"/>
         </scene>
         <!--Photo Details View Controller-->
-        <scene sceneID="818-8E-hh9">
+        <scene sceneID="apa-UZ-dAG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oda-p5-rBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="iDa-Xd-FlV" customClass="PhotoDetailsViewController" customModule="iFlickrClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MXN-CY-kMh" customClass="PhotoDetailsViewController" customModule="iFlickrClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="m7R-qK-9ma"/>
-                        <viewControllerLayoutGuide type="bottom" id="mtY-md-nC6"/>
+                        <viewControllerLayoutGuide type="top" id="vim-lF-c17"/>
+                        <viewControllerLayoutGuide type="bottom" id="la1-3r-bxh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oDM-rz-u5i" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="o60-dq-TgN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gx-1c-M1L">
-                                <rect key="frame" x="-5" y="0.0" width="605" height="470"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="UpO-4K-k0q">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="jEM-7v-P8I">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <animations/>
+                                    </imageView>
+                                </subviews>
                                 <animations/>
-                            </imageView>
+                                <constraints>
+                                    <constraint firstItem="jEM-7v-P8I" firstAttribute="trailing" secondItem="UpO-4K-k0q" secondAttribute="trailing" constant="-1" id="Ix4-ey-Aax" userLabel="Horizontal Space - (-1) - Scroll View - Image View"/>
+                                    <constraint firstItem="jEM-7v-P8I" firstAttribute="top" secondItem="UpO-4K-k0q" secondAttribute="top" id="RUB-je-mLZ"/>
+                                    <constraint firstItem="jEM-7v-P8I" firstAttribute="bottom" secondItem="UpO-4K-k0q" secondAttribute="bottom" constant="-1" id="SSB-Uw-o1u"/>
+                                    <constraint firstItem="jEM-7v-P8I" firstAttribute="leading" secondItem="UpO-4K-k0q" secondAttribute="leading" id="cdr-oO-7FU"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UpO-4K-k0q" firstAttribute="leading" secondItem="o60-dq-TgN" secondAttribute="leading" id="bEf-hU-7EP"/>
+                            <constraint firstItem="UpO-4K-k0q" firstAttribute="top" secondItem="vim-lF-c17" secondAttribute="top" id="bZB-qD-Asw"/>
+                            <constraint firstItem="la1-3r-bxh" firstAttribute="bottom" secondItem="UpO-4K-k0q" secondAttribute="bottom" id="erh-HN-jeY"/>
+                            <constraint firstAttribute="trailing" secondItem="UpO-4K-k0q" secondAttribute="trailing" id="f7y-Sm-6Ke"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="photoView" destination="6gx-1c-M1L" id="sVO-ko-fwx"/>
-                        <outlet property="scrollView" destination="oDM-rz-u5i" id="TLB-tp-5Ix"/>
+                        <outlet property="imageConstraintBottom" destination="SSB-Uw-o1u" id="lMV-03-v8p"/>
+                        <outlet property="imageConstraintLeft" destination="cdr-oO-7FU" id="8aT-E7-MNa"/>
+                        <outlet property="imageConstraintRight" destination="Ix4-ey-Aax" id="tvR-Ru-X0b"/>
+                        <outlet property="imageConstraintTop" destination="RUB-je-mLZ" id="xBs-96-yHs"/>
+                        <outlet property="imageView" destination="jEM-7v-P8I" id="Qyq-wS-2vF"/>
+                        <outlet property="scrollView" destination="UpO-4K-k0q" id="GSZ-DP-vyS"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QOg-DW-ZEb" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="-40"/>
+            <point key="canvasLocation" x="2300" y="-62"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TfO-LP-KTJ"/>
+        <segue reference="01x-aW-o1U"/>
     </inferredMetricsTieBreakers>
 </document>

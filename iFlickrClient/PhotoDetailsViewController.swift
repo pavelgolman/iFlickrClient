@@ -1,32 +1,38 @@
 import Foundation
 import UIKit
 
-class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate{
+class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var photoView: UIImageView!
     var photo = FlickrPhoto!()
     
-    var lastZoomScale: CGFloat = -1
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageSizeToggleButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var imageConstraintTop: NSLayoutConstraint!
+    @IBOutlet weak var imageConstraintRight: NSLayoutConstraint!
+    @IBOutlet weak var imageConstraintLeft: NSLayoutConstraint!
+    @IBOutlet weak var imageConstraintBottom: NSLayoutConstraint!
+    
+    var lastZoomScale: CGFloat = -1
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         let api = FlickAPI()
-        let url = api.fk.photoURLForSize(FKPhotoSizeLarge1600, fromPhotoDictionary:self.photo.photo as! [NSObject : AnyObject])
+        let url = api.fk.photoURLForSize(FKPhotoSizeLarge1024, fromPhotoDictionary:self.photo.photo as! [NSObject : AnyObject])
         
         print("ORIGINAL URL: " + url.absoluteString)
-        photoView.setImageWithURL(url)
         
+        imageView.setImageWithURL(url)
         
-        self.scrollView.addSubview(photoView)
-        
+        scrollView.minimumZoomScale = 1
+        scrollView.maximumZoomScale = 4.0
+        scrollView.zoomScale = 1.0
         scrollView.delegate = self
         updateZoom()
-       
+        setupGestureRecognizer()
     }
-    
     
     // Update zoom scale and constraints with animation.
     @available(iOS 8.0, *)
@@ -40,27 +46,34 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate{
                 }, completion: nil)
     }
     
-    //
-    // Update zoom scale and constraints with animation on iOS 7.
-    //
-    // DEPRECATION NOTICE:
-    //
-    // This method is deprecated in iOS 8.0 and it is here just for iOS 7.
-    // You can safely remove this method if you are not supporting iOS 7.
-    // Or if you do support iOS 7 you can leave it here as it will be ignored by the newer iOS versions.
-    //
-    override func willAnimateRotationToInterfaceOrientation(
-        toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    func updateConstraints() {
+        if let image = imageView.image {
+            let imageWidth = image.size.width
+            let imageHeight = image.size.height
             
-            super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
-            updateZoom()
+            let viewWidth = scrollView.bounds.size.width
+            let viewHeight = scrollView.bounds.size.height
+            
+            // center image if it is smaller than the scroll view
+            var hPadding = (viewWidth - scrollView.zoomScale * imageWidth) / 2
+            if hPadding < 0 { hPadding = 0 }
+            
+            var vPadding = (viewHeight - scrollView.zoomScale * imageHeight) / 2
+            if vPadding < 0 { vPadding = 0 }
+            
+            imageConstraintLeft.constant = hPadding
+            imageConstraintRight.constant = hPadding
+            
+            imageConstraintTop.constant = vPadding
+            imageConstraintBottom.constant = vPadding
+            
+            view.layoutIfNeeded()
+        }
     }
-    
-    
     
     // Zoom to show as much image as possible unless image is smaller than the scroll view
     private func updateZoom() {
-        if let image = photoView.image {
+        if let image = imageView.image {
             var minZoom = min(scrollView.bounds.size.width / image.size.width,
                 scrollView.bounds.size.height / image.size.height)
             
@@ -76,11 +89,32 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate{
         }
     }
     
-
+    func setupGestureRecognizer() {
+        let doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
+        doubleTap.numberOfTapsRequired = 2
+        scrollView.addGestureRecognizer(doubleTap)
+    }
+    
+    func handleDoubleTap(recognizer: UITapGestureRecognizer) {
+        
+        if (scrollView.zoomScale > scrollView.minimumZoomScale) {
+            scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+        } else {
+            scrollView.setZoomScale(scrollView.maximumZoomScale, animated: true)
+        }
+    }
+    
+    
+    // UIScrollViewDelegate
+    // -----------------------
+    
+    func scrollViewDidZoom(scrollView: UIScrollView) {
+        updateConstraints()
+    }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return photoView
+        return imageView
     }
-
     
 }
+
