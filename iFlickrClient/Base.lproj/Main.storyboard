@@ -89,6 +89,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="imageView" destination="huc-vY-5Om" id="Ebu-4q-786"/>
+                                    <segue destination="iDa-Xd-FlV" kind="showDetail" identifier="ShowDetail" id="Fqs-xL-FYB"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -157,6 +158,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="imageView" destination="u9d-Un-hvZ" id="b4j-bE-ITO"/>
+                                    <segue destination="iDa-Xd-FlV" kind="showDetail" identifier="" id="TfO-LP-KTJ"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -174,5 +176,37 @@
             </objects>
             <point key="canvasLocation" x="1670" y="420"/>
         </scene>
+        <!--Photo Details View Controller-->
+        <scene sceneID="818-8E-hh9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oda-p5-rBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="iDa-Xd-FlV" customClass="PhotoDetailsViewController" customModule="iFlickrClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m7R-qK-9ma"/>
+                        <viewControllerLayoutGuide type="bottom" id="mtY-md-nC6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oDM-rz-u5i" customClass="UIScrollView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gx-1c-M1L">
+                                <rect key="frame" x="-5" y="0.0" width="605" height="470"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoView" destination="6gx-1c-M1L" id="sVO-ko-fwx"/>
+                        <outlet property="scrollView" destination="oDM-rz-u5i" id="TLB-tp-5Ix"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2616" y="-40"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TfO-LP-KTJ"/>
+    </inferredMetricsTieBreakers>
 </document>

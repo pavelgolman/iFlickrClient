@@ -7,7 +7,7 @@ class CommonSearchViewController : UICollectionViewController {
     @IBOutlet var imagesView: UICollectionView!
     
     let api = FlickAPI()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -42,7 +42,7 @@ class CommonSearchViewController : UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.collectionCellIdentifier(), forIndexPath: indexPath) as! iFlickrClientCollectionViewCell
        
-            let url = self.api.fk.photoURLForSize(FKPhotoSizeLargeSquare150, fromPhotoDictionary:self.images[indexPath.row].photo as! [NSObject : AnyObject])
+        let url = self.api.fk.photoURLForSize(FKPhotoSizeLargeSquare150, fromPhotoDictionary:self.images[indexPath.row].photo as! [NSObject : AnyObject])
         
         cell.imageView.setImageWithURL(url, placeholderImage: UIImage(named: "loading.gif"))
         
@@ -58,17 +58,14 @@ class CommonSearchViewController : UICollectionViewController {
             self.api.searchImages(didLoadImages)
         }
     }
-}
-/*
-extension CommonSearchViewController: UICollectionViewDelegateFlowLayout {
-    // MARK:- UICollectioViewDelegateFlowLayout methods
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
-    {
-        // http://stackoverflow.com/questions/28872001/uicollectionview-cell-spacing-based-on-device-sceen-size
-        
-        let length = (UIScreen.mainScreen().bounds.width-15)/4
-        return CGSizeMake(length,length);
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let detailsViewController: PhotoDetailsViewController = segue.destinationViewController as? PhotoDetailsViewController {
+            
+            let selectedRow = imagesView.indexPathsForSelectedItems()?.last
+            
+            detailsViewController.photo = self.images[(selectedRow?.row)!]
+            
+        }
     }
 }
-*/

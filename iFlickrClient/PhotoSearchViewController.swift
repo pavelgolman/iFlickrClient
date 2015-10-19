@@ -30,8 +30,8 @@ class PhotoSearchViewController: CommonSearchViewController , UISearchBarDelegat
         
     }
     
-    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.images = [FlickrPhoto]()
         if searchText.characters.count >= 3{
             print("search text is \(searchText)")
             self.api.curentTags = ["tags": searchText]
