@@ -89,7 +89,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="imageView" destination="huc-vY-5Om" id="Ebu-4q-786"/>
-                                    <segue destination="iDa-Xd-FlV" kind="showDetail" identifier="ShowDetail" id="Fqs-xL-FYB"/>
+                                    <segue destination="iDa-Xd-FlV" kind="show" identifier="ShowDetail" id="Fqs-xL-FYB"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -158,7 +158,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="imageView" destination="u9d-Un-hvZ" id="b4j-bE-ITO"/>
-                                    <segue destination="iDa-Xd-FlV" kind="showDetail" identifier="" id="TfO-LP-KTJ"/>
+                                    <segue destination="iDa-Xd-FlV" kind="show" identifier="" id="TfO-LP-KTJ"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
