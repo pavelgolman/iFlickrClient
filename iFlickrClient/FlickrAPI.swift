@@ -30,6 +30,8 @@ class FlickAPI{
         args["page"] = String(self.currentPage)
         
         self.fk.call("flickr.photos.search", args: args) { (response, error) -> Void in
+            if (response != nil) {
+            
             let photoPager = response["photos"] as! Dictionary<String, AnyObject>
             let photos = photoPager["photo"] as! Array<AnyObject>
             
@@ -49,8 +51,8 @@ class FlickAPI{
                 dispatch_async(dispatch_get_main_queue(), {
                     completion(result)
                 })
-            })
-        }
+                })
+            }}
     }
     
 }
