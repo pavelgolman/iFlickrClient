@@ -24,7 +24,7 @@ class FlickAPI{
     }
     
     func searchImages(completion: (([FlickrPhoto]) -> Void)!){
-        self.fk.initializeWithAPIKey("93ce146f5889c40595052957db235a76", sharedSecret:"721d862aa6fecd8f");
+        self.fk.initializeWithAPIKey(self.API_KEY, sharedSecret:self.SHARED_SECRET);
         
         var args = self.curentTags
         args["page"] = String(self.currentPage)
