@@ -65,7 +65,7 @@ class CommonSearchViewController : UICollectionViewController {
             let selectedRow = imagesView.indexPathsForSelectedItems()?.last
             
             detailsViewController.photo = self.images[(selectedRow?.row)!]
-            
+            detailsViewController.hidesBottomBarWhenPushed = true
         }
     }
 }

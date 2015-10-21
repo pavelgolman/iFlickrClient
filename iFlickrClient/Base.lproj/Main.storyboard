@@ -89,7 +89,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="imageView" destination="huc-vY-5Om" id="Ebu-4q-786"/>
-                                    <segue destination="MXN-CY-kMh" kind="show" id="Rhz-Qi-30o"/>
+                                    <segue destination="MXN-CY-kMh" kind="show" id="jDe-2R-alz"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -158,7 +158,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="imageView" destination="u9d-Un-hvZ" id="b4j-bE-ITO"/>
-                                    <segue destination="MXN-CY-kMh" kind="show" id="01x-aW-o1U"/>
+                                    <segue destination="MXN-CY-kMh" kind="show" id="gIF-ia-MkC"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -229,6 +229,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="01x-aW-o1U"/>
+        <segue reference="gIF-ia-MkC"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

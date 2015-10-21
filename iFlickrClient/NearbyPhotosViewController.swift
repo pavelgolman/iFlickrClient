@@ -13,8 +13,6 @@ class NearbyPhotosViewController: CommonSearchViewController, CLLocationManagerD
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
         
-        
-        
     }
     
     override func collectionCellIdentifier() -> String{
@@ -55,6 +53,9 @@ class NearbyPhotosViewController: CommonSearchViewController, CLLocationManagerD
         
         api.curentTags = ["bbox": minLong + ","+minLat+","+maxLong+","+maxLat]
         api.searchImages(didLoadImages)
+        
+        navigationItem.title = "Your location: " + String(location.coordinate.latitude)+";"+String(location.coordinate.longitude)
+        
     }
 
 }

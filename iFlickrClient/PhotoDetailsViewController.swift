@@ -19,6 +19,8 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.navigationController?.navigationBar.hidden = true
+        
         let api = FlickAPI()
         let url = api.fk.photoURLForSize(FKPhotoSizeLarge1024, fromPhotoDictionary:self.photo.photo as! [NSObject : AnyObject])
         
@@ -32,6 +34,8 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         updateZoom()
         setupGestureRecognizer()
+        
+        
     }
     
     // Update zoom scale and constraints with animation.
@@ -93,6 +97,17 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         let doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
         doubleTap.numberOfTapsRequired = 2
         scrollView.addGestureRecognizer(doubleTap)
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: "handleTap:")
+        singleTap.numberOfTapsRequired = 1
+        scrollView.addGestureRecognizer(singleTap)
+        
+        singleTap.requireGestureRecognizerToFail(doubleTap)
+    }
+    
+    func handleTap(recognizer: UIGestureRecognizer) {
+        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func handleDoubleTap(recognizer: UITapGestureRecognizer) {
