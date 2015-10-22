@@ -42,7 +42,7 @@ class CommonSearchViewController : UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.collectionCellIdentifier(), forIndexPath: indexPath) as! iFlickrClientCollectionViewCell
        
-        let url = self.api.fk.photoURLForSize(FKPhotoSizeLargeSquare150, fromPhotoDictionary:self.images[indexPath.row].photo as! [NSObject : AnyObject])
+        let url = self.images[indexPath.row].thumbnailURL;
         
         cell.imageView.setImageWithURL(url, placeholderImage: UIImage(named: "loading.gif"))
         

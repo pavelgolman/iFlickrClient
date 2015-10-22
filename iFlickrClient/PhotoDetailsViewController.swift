@@ -21,12 +21,9 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         
         self.navigationController?.navigationBar.hidden = true
         
-        let api = FlickAPI()
-        let url = api.fk.photoURLForSize(FKPhotoSizeLarge1024, fromPhotoDictionary:self.photo.photo as! [NSObject : AnyObject])
+        print("ORIGINAL URL: " + self.photo.originalURL.absoluteString)
         
-        print("ORIGINAL URL: " + url.absoluteString)
-        
-        imageView.setImageWithURL(url)
+        imageView.setImageWithURL(self.photo.originalURL)
         
         scrollView.minimumZoomScale = 1
         scrollView.maximumZoomScale = 4.0

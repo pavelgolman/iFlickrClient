@@ -1,8 +1,8 @@
 
 
 class FlickrPhoto {
-    
-    var photo: AnyObject!
-    
+        
+    var originalURL: NSURL!
+    var thumbnailURL: NSURL!
 
 }
