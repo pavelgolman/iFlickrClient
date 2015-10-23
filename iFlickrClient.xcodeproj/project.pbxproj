@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		D92E4B762AA0E1773404721F /* libPods-iFlickrClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC89F9151ABBF3118792FB4 /* libPods-iFlickrClient.a */; };
-		E9234E041BD34E2600CC89F9 /* CommonSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9234E031BD34E2600CC89F9 /* CommonSearchViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E9234E071BD4120300CC89F9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = E9234E061BD4120300CC89F9 /* loading.gif */; settings = {ASSET_TAGS = (); }; };
-		E9234E091BD4579C00CC89F9 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9234E081BD4579C00CC89F9 /* PhotoDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		E9234E041BD34E2600CC89F9 /* CommonSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9234E031BD34E2600CC89F9 /* CommonSearchViewController.swift */; };
+		E9234E071BD4120300CC89F9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = E9234E061BD4120300CC89F9 /* loading.gif */; };
+		E9234E091BD4579C00CC89F9 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9234E081BD4579C00CC89F9 /* PhotoDetailsViewController.swift */; };
 		E949C76F1BC2F8EC00E9ED3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C76E1BC2F8EC00E9ED3F /* AppDelegate.swift */; };
 		E949C7711BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7701BC2F8EC00E9ED3F /* NearbyPhotosViewController.swift */; };
 		E949C7731BC2F8EC00E9ED3F /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949C7721BC2F8EC00E9ED3F /* PhotoSearchViewController.swift */; };
 		E949C7761BC2F8EC00E9ED3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E949C7741BC2F8EC00E9ED3F /* Main.storyboard */; };
 		E949C7781BC2F8EC00E9ED3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E949C7771BC2F8EC00E9ED3F /* Assets.xcassets */; };
 		E949C77B1BC2F8EC00E9ED3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E949C7791BC2F8EC00E9ED3F /* LaunchScreen.storyboard */; };
-		E9BBD3431BD1EE0D007CD4B9 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BBD3421BD1EE0D007CD4B9 /* FlickrAPI.swift */; settings = {ASSET_TAGS = (); }; };
-		E9BBD3461BD1FDFF007CD4B9 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BBD3451BD1FDFF007CD4B9 /* FlickrPhoto.swift */; settings = {ASSET_TAGS = (); }; };
-		E9D3900E1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3900D1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		E9BBD3431BD1EE0D007CD4B9 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BBD3421BD1EE0D007CD4B9 /* FlickrAPI.swift */; };
+		E9BBD3461BD1FDFF007CD4B9 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BBD3451BD1FDFF007CD4B9 /* FlickrPhoto.swift */; };
+		E9D3900E1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3900D1BCB094A009BB098 /* iFlickrClientCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +147,7 @@
 				E949C7681BC2F8EC00E9ED3F /* Frameworks */,
 				E949C7691BC2F8EC00E9ED3F /* Resources */,
 				A05B00CFF8AAD289CB699EBB /* Copy Pods Resources */,
+				3130AD0AAD5B20E241742FE2 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,6 +206,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3130AD0AAD5B20E241742FE2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iFlickrClient/Pods-iFlickrClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A05B00CFF8AAD289CB699EBB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
