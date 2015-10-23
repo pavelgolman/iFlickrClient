@@ -44,7 +44,19 @@ class CommonSearchViewController : UICollectionViewController {
        
         let url = self.images[indexPath.row].thumbnailURL;
         
-        cell.imageView.setImageWithURL(url, placeholderImage: UIImage(named: "loading.gif"))
+        cell.imageView.hidden = true
+        cell.loading.startAnimating()
+        
+        cell.imageView.setImageWithURLRequest(
+            NSURLRequest(URL: url),
+            placeholderImage: nil,
+            success: { (request: NSURLRequest, response, image: UIImage) -> Void in
+                cell.imageView.image = image
+                cell.loading.stopAnimating()
+                cell.imageView.hidden = false
+            }) { (request: NSURLRequest, response, error: NSError) -> Void in
+                print(error.description)
+        }
         
         cell.setNeedsDisplay()
         return cell

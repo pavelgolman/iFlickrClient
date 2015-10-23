@@ -5,6 +5,7 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     
     var photo = FlickrPhoto!()
     
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageSizeToggleButton: UIButton!
@@ -23,7 +24,21 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         
         print("ORIGINAL URL: " + self.photo.originalURL.absoluteString)
         
-        imageView.setImageWithURL(self.photo.originalURL)
+        
+        imageView.hidden = true
+        loading.startAnimating()
+        
+        imageView.setImageWithURLRequest(
+            NSURLRequest(URL: self.photo.originalURL),
+            placeholderImage: nil,
+            success: { (request: NSURLRequest, response, image: UIImage) -> Void in
+                self.imageView.image = image
+                self.loading.stopAnimating()
+                self.imageView.hidden = false
+            }) { (request: NSURLRequest, response, error: NSError) -> Void in
+                print(error.description)
+        }
+
         
         scrollView.minimumZoomScale = 1
         scrollView.maximumZoomScale = 4.0
@@ -70,6 +85,8 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
             
             view.layoutIfNeeded()
         }
+        
+        
     }
     
     // Zoom to show as much image as possible unless image is smaller than the scroll view

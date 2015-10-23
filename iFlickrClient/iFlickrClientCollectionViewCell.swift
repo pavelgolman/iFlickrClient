@@ -3,6 +3,8 @@ import UIKit
 
 class iFlickrClientCollectionViewCell: UICollectionViewCell {
 
+    
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     
     var url : NSURL?

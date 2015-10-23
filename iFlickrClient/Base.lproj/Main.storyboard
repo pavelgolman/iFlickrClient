@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -69,6 +69,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                             <animations/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Fh4-yW-yVa">
+                                            <rect key="frame" x="27" y="28" width="20" height="20"/>
+                                            <animations/>
+                                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -90,6 +95,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="imageView" destination="huc-vY-5Om" id="Ebu-4q-786"/>
+                                    <outlet property="loading" destination="Fh4-yW-yVa" id="DQ7-pY-k5W"/>
                                     <segue destination="MXN-CY-kMh" kind="show" id="jDe-2R-alz"/>
                                 </connections>
                             </collectionViewCell>
@@ -152,6 +158,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                             <animations/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="b5O-gr-TdV">
+                                            <rect key="frame" x="27" y="28" width="20" height="20"/>
+                                            <animations/>
+                                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -159,6 +170,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="imageView" destination="u9d-Un-hvZ" id="b4j-bE-ITO"/>
+                                    <outlet property="loading" destination="b5O-gr-TdV" id="twl-PH-fmX"/>
                                     <segue destination="MXN-CY-kMh" kind="show" id="gIF-ia-MkC"/>
                                 </connections>
                             </collectionViewCell>
@@ -196,14 +208,31 @@
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <animations/>
                                     </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="skj-Ry-4Cy">
+                                        <rect key="frame" x="290" y="280" width="20" height="20"/>
+                                        <animations/>
+                                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
+                                    <constraint firstItem="skj-Ry-4Cy" firstAttribute="top" secondItem="UpO-4K-k0q" secondAttribute="top" constant="300" id="Dlj-Ke-kux"/>
                                     <constraint firstItem="jEM-7v-P8I" firstAttribute="trailing" secondItem="UpO-4K-k0q" secondAttribute="trailing" constant="-1" id="Ix4-ey-Aax" userLabel="Horizontal Space - (-1) - Scroll View - Image View"/>
+                                    <constraint firstItem="skj-Ry-4Cy" firstAttribute="top" secondItem="UpO-4K-k0q" secondAttribute="top" constant="344" id="PYi-h1-QT1"/>
                                     <constraint firstItem="jEM-7v-P8I" firstAttribute="top" secondItem="UpO-4K-k0q" secondAttribute="top" id="RUB-je-mLZ"/>
                                     <constraint firstItem="jEM-7v-P8I" firstAttribute="bottom" secondItem="UpO-4K-k0q" secondAttribute="bottom" constant="-1" id="SSB-Uw-o1u"/>
+                                    <constraint firstAttribute="trailing" secondItem="skj-Ry-4Cy" secondAttribute="trailing" constant="290" id="YVd-11-2OJ"/>
+                                    <constraint firstItem="skj-Ry-4Cy" firstAttribute="centerX" secondItem="UpO-4K-k0q" secondAttribute="centerX" id="bSr-ek-de7"/>
                                     <constraint firstItem="jEM-7v-P8I" firstAttribute="leading" secondItem="UpO-4K-k0q" secondAttribute="leading" id="cdr-oO-7FU"/>
+                                    <constraint firstAttribute="bottom" secondItem="skj-Ry-4Cy" secondAttribute="bottom" constant="216" id="dgW-Br-zde"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PYi-h1-QT1"/>
+                                        <exclude reference="YVd-11-2OJ"/>
+                                        <exclude reference="dgW-Br-zde"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <animations/>
@@ -221,6 +250,7 @@
                         <outlet property="imageConstraintRight" destination="Ix4-ey-Aax" id="tvR-Ru-X0b"/>
                         <outlet property="imageConstraintTop" destination="RUB-je-mLZ" id="xBs-96-yHs"/>
                         <outlet property="imageView" destination="jEM-7v-P8I" id="Qyq-wS-2vF"/>
+                        <outlet property="loading" destination="skj-Ry-4Cy" id="V0g-zd-1bw"/>
                         <outlet property="scrollView" destination="UpO-4K-k0q" id="GSZ-DP-vyS"/>
                     </connections>
                 </viewController>
@@ -230,7 +260,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gIF-ia-MkC"/>
+        <segue reference="jDe-2R-alz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>
